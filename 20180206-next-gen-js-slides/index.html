@@ -1,0 +1,411 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Next generation JavaScript</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- CUSTOM STYLES -->
+	<style>
+		.reveal section img {
+			background:none;
+			border:none;
+			box-shadow:none;
+		}
+
+		body {
+			background-image: url(../pics/limebylundalogik.png);
+			background-size: 15%;
+			background-repeat: no-repeat;
+			background-position: 3% 3%;
+		}
+	</style>
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<textarea data-template>
+					### Next Generation JavaScript
+
+					Att modernisera en legacy-kodbas
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				## Calle Boketoft
+
+				- Webbutvecklare - front end lead Lime CRM
+				- Pluggat Interaktionsteknik & Design i Umeå
+				- Många typer av projekt, nyskrivning - legacy
+				- Single page apps - administrationsverktyg
+				- Nu: Lime CRM - modernisering av webbplattform
+			</section>
+
+			<section>
+				<img src="../pics/limebylundalogik.png" style="height: 25vh">
+				<div data-markdown>
+					- Funnits sedan 90
+					- Växer och anställer för fullt
+					- Lund, Stockholm, Göteborg
+					- Produktföretag - Säljverktyg
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Översikt av process
+
+					1. Bakgrund
+					1. Analys - existerande
+					1. Analys - framtid
+					1. Planering
+					1. Utförande
+					1. Risker
+					1. Nästa steg?
+					1. Våra valda lösningar
+				</div>
+			</section>
+
+			<section data-markdown>
+				## 1. Bakgrund för caset
+
+				- Pågående projekt sedan ett antal år
+				- Medelstor/stor kodbas
+				- Prio nya features och buggfix
+				- Teknisk skuld påtaglig, starkt motiverande
+				- Önskescenario: modern JS-kodbas
+				- Börja om på nytt? Modernisera?
+			</section>
+
+			<section data-markdown>
+				## 2. Analys - existerande kod
+
+				- Kolla igenom koden på utvalda ställen
+				- Få översikt över de olika delarna
+				- Automatiserade tester?
+				- Vilket byggsystem används?
+				- Är koden modulariserad?
+				- Serverrendering eller klientrendering?
+				- Hemskrivna lösningar?
+			</section>
+
+			<section data-markdown>
+				## 3. Analys - framtida kod
+
+				- Mantra: förenkla!
+				- Vilka browsers ska vi stödja?
+				- Vad kan tas bort?
+				- Hur har andra löst samma problem?
+				- Modularisera delar som bör delas upp
+				- Sikta på enklast möjliga byggsystem
+				- Standard kodformattering
+			</section>
+
+			<section data-markdown>
+				## 4. Planering
+
+				- Sätt upp tydliga mål
+				- Finns en naturlig ordning av mål?
+				- Ungefärlig tidsplan per mål
+				- Inkrementell implementation
+			</section>
+
+			<section data-markdown>
+				## 5. Utförande av arbete
+
+				- Börja med byggsystem, enklast att verifiera
+				- Logisk och lättnavigerad mappstruktur
+				- Modularisera med minimal förändring
+				- Samma beteende som tidigare helst
+				- Kom överens om nya beteenden i teamet
+				- Testa regelbundet - både auto samt manuellt
+				- Alltid en sak åt gången!
+			</section>
+
+			<section data-markdown>
+				## 6. Risker
+
+				- Göra mer än en sak åt gången
+				 - Upptäcker något fel senare - backtracking
+				 - Rena GIT commits viktigt
+				- Ersätta en komplex lösning med en annan
+				- Byta ut något "bara för att"
+			</section>
+
+			<section data-markdown>
+				## 7. Nästa steg?
+
+				- Kodens grund är redo
+				 - Kodförbättring, nyutveckling
+				- Större uppdateringar
+				 - AngularJS -> Angular 5
+				- State management med Redux
+				- Web Components
+				 - Fristående komponenter
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Våra valda lösningar
+				</div>
+				<img src="../pics/limecrm.png" style="height: 25vh">
+			</section>
+
+			<section>
+					<div data-markdown>
+						## JavaScript-moduler
+					</div>
+					<img src="../pics/esm.jpg" style="height: 25vh">
+					<div data-markdown>
+						- Ny standard
+						 - Föregångare AMD, CommonJS
+						- Dela upp i explicita moduler
+						- Kodnavigering i editor
+						- Autocomplete, intellisense
+					</div>
+				</section>
+
+			<section>
+				<div data-markdown>
+					## Webpack
+				</div>
+				<img src="../pics/webpack.png" style="height: 25vh">
+				<div data-markdown>
+					- Automatiserat bygge av JS
+					- Bygga ihop JS moduler för browser
+					 - Även CSS-moduler etc.
+					- Live reload - Automatisk omladdning
+					- Cache busting, minifiering
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Transpiler & Polyfills
+				</div>
+				<img src="../pics/ts.png" style="height: 25vh">
+				<div data-markdown>
+					- TypeScript: Superset av JavaScript
+					 - Kan använda kommande JS-lösningar
+					 - Optional types
+					- CoreJS: Polyfills för browsers
+					 - Browserstöd ner till IE11
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Data store
+				</div>
+				<img src="../pics/redux-white-bg.png" style="height: 25vh">
+				<div data-markdown>
+					- Data hanteras på ett ställe
+					- Enkelt att organisera och testa
+					- Uppdateringar till alla konsumenter
+					- Time traveling - "undo"
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Editor med kodanalys
+				</div>
+				<img src="../pics/vsc.png" style="height: 25vh">
+				<div data-markdown>
+					- Visual Studio Code
+					- Atom
+					- Autocompletion etc.
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Prettier.js
+				</div>
+				<img src="../pics/prettierjs.png" style="height: 25vh">
+				<div data-markdown>
+					- Ytterst lite config
+					- Automatiskt formattering
+					- AST förstår kod, line length
+					- Effektivt
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Front End Framework
+				</div>
+				<img src="../pics/angular.svg" style="height: 25vh">
+				<div data-markdown>
+					- Komplett FE ramverk för team
+					- Components för UI element
+					- FormBuilder
+					- Router
+					- HTTP Client
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Tack!
+					- Traineeprogram för nyutexaminerade
+					 - [lundalogik.se/trainee](http://www.lundalogik.se/trainee)
+					 - Sista ansökningsdag 28 februari
+					- Maila oss [info@lundalogik.se](mailto:info@lundalogik.se)
+					- [github.com/Lundalogik/next-gen-js-slides](http://www.github.com/Lundalogik/next-gen-js-slides)
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			// Display presentation control arrows
+			controls: true,
+
+			// Help the user learn the controls by providing hints, for example by
+			// bouncing the down arrow when they first encounter a vertical slide
+			controlsTutorial: true,
+
+			// Determines where controls appear, "edges" or "bottom-right"
+			controlsLayout: 'bottom-right',
+
+			// Visibility rule for backwards navigation arrows; "faded", "hidden"
+			// or "visible"
+			controlsBackArrows: 'faded',
+
+			// Display a presentation progress bar
+			progress: true,
+
+			// Set default timing of 2 minutes per slide
+			defaultTiming: 120,
+
+			// Display the page number of the current slide
+			slideNumber: false,
+
+			// Push each slide change to the browser history
+			history: false,
+
+			// Enable keyboard shortcuts for navigation
+			keyboard: true,
+
+			// Enable the slide overview mode
+			overview: true,
+
+			// Vertical centering of slides
+			center: true,
+
+			// Enables touch navigation on devices with touch input
+			touch: true,
+
+			// Loop the presentation
+			loop: false,
+
+			// Change the presentation direction to be RTL
+			rtl: false,
+
+			// Randomizes the order of slides each time the presentation loads
+			shuffle: false,
+
+			// Turns fragments on and off globally
+			fragments: true,
+
+			// Flags if the presentation is running in an embedded mode,
+			// i.e. contained within a limited portion of the screen
+			embedded: false,
+
+			// Flags if we should show a help overlay when the questionmark
+			// key is pressed
+			help: true,
+
+			// Flags if speaker notes should be visible to all viewers
+			showNotes: false,
+
+			// Global override for autoplaying embedded media (video/audio/iframe)
+			// - null: Media will only autoplay if data-autoplay is present
+			// - true: All media will autoplay, regardless of individual setting
+			// - false: No media will autoplay, regardless of individual setting
+			autoPlayMedia: null,
+
+			// Number of milliseconds between automatically proceeding to the
+			// next slide, disabled when set to 0, this value can be overwritten
+			// by using a data-autoslide attribute on your slides
+			autoSlide: 0,
+
+			// Stop auto-sliding after user input
+			autoSlideStoppable: true,
+
+			// Use this method for navigation when auto-sliding
+			autoSlideMethod: Reveal.navigateNext,
+
+			// Enable slide navigation via mouse wheel
+			mouseWheel: false,
+
+			// Hides the address bar on mobile devices
+			hideAddressBar: true,
+
+			// Opens links in an iframe preview overlay
+			previewLinks: false,
+
+			// Transition style
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+
+			// Transition speed
+			transitionSpeed: 'default', // default/fast/slow
+
+			// Transition style for full page slide backgrounds
+			backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+			// Number of slides away from the current that are visible
+			viewDistance: 3,
+
+			// Parallax background image
+			parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+			// Parallax background size
+			parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+			// Number of pixels to move the parallax background per slide
+			// - Calculated automatically unless specified
+			// - Set to 0 to disable movement along an axis
+			parallaxBackgroundHorizontal: null,
+			parallaxBackgroundVertical: null,
+
+			// The display mode that will be used to show slides
+			display: 'block',
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

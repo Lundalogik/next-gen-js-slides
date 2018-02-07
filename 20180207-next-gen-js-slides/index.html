@@ -114,19 +114,20 @@
 				- Mantra: förenkla!
 				- Vilka browsers ska vi stödja?
 				- Vad kan tas bort?
-				- Hur har andra löst samma problem?
 				- Modularisera delar som bör delas upp
 				- Sikta på enklast möjliga byggsystem
-				- Standard kodformattering
+				- Standardiserad kodformattering
 			</section>
 
 			<section data-markdown>
 				## 4. Planering
 
 				- Sätt upp tydliga mål
+				- Avgränsade iterationer
 				- Finns en naturlig ordning av mål?
+				 - Mycket nytta med lite arbete i början
 				- Ungefärlig tidsplan per mål
-				- Inkrementell implementation
+				 - Fastnar man kan man omorganisera
 			</section>
 
 			<section data-markdown>
@@ -154,13 +155,13 @@
 			<section data-markdown>
 				## 7. Nästa steg?
 
-				- Kodens grund är redo
+				- Kodens grund och struktur är redo
 				 - Kodförbättring, nyutveckling
 				- Större uppdateringar
 				 - AngularJS -> Angular 5
 				- State management med Redux
 				- Web Components
-				 - Fristående komponenter
+				 - Fristående UI-komponenter
 			</section>
 
 			<section>
@@ -200,15 +201,16 @@
 
 			<section>
 				<div data-markdown>
-					## Transpiler & Polyfills
+					## Compile to JavaScript
 				</div>
 				<img src="../pics/ts.png" style="height: 25vh">
+
 				<div data-markdown>
 					- TypeScript: Superset av JavaScript
-					 - Kan använda kommande JS-lösningar
+					 - Kommande standarder idag
 					 - Optional types
-					- CoreJS: Polyfills för browsers
-					 - Browserstöd ner till IE11
+					 - Underlättar arbete i team
+					 - Enkelt med refaktorering
 				</div>
 			</section>
 
@@ -233,20 +235,23 @@
 				<div data-markdown>
 					- Visual Studio Code
 					- Atom
+					- VIM
 					- Autocompletion etc.
+					- Förstår TypeScript
 				</div>
 			</section>
 
 			<section>
 				<div data-markdown>
-					## Prettier.js
+					## Kodformattering
 				</div>
 				<img src="../pics/prettierjs.png" style="height: 25vh">
 				<div data-markdown>
-					- Ytterst lite config
+					- Prettier.js
+					- Opinionated
+					- Utvalda konfigureringar möjliga
 					- Automatiskt formattering
-					- AST förstår kod, line length
-					- Effektivt
+					 - Skrämmande tills man testat
 				</div>
 			</section>
 
@@ -256,11 +261,11 @@
 				</div>
 				<img src="../pics/angular.svg" style="height: 25vh">
 				<div data-markdown>
+					- Viktigt val för hela produkten
 					- Komplett FE ramverk för team
 					- Components för UI element
-					- FormBuilder
-					- Router
-					- HTTP Client
+					- FormBuilder, Router, HTTP Client
+					- Observables, One way binding
 				</div>
 			</section>
 

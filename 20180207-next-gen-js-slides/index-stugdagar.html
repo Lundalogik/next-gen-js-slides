@@ -1,0 +1,398 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Modernizing Lime CRM front end code</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- CUSTOM STYLES -->
+	<style>
+		.reveal section img {
+			background:none;
+			border:none;
+			box-shadow:none;
+		}
+
+		body {
+			background-image: url(../pics/limebylundalogik.png);
+			background-size: 15%;
+			background-repeat: no-repeat;
+			background-position: 3% 3%;
+		}
+	</style>
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<textarea data-template>
+					### Modernizing Lime CRM FE code
+				</textarea>
+			</section>
+
+			<!-- <section data-markdown>
+				## Calle Boketoft
+
+				- Webbutvecklare - front end lead Lime CRM
+				- Pluggat Interaktionsteknik & Design i Umeå
+				- Många typer av projekt, nyskrivning - legacy
+				- Single page apps - administrationsverktyg
+				- Nu: Lime CRM - modernisering av webbplattform
+			</section>
+
+			<section>
+				<img src="../pics/limebylundalogik.png" style="height: 25vh">
+				<div data-markdown>
+					- Funnits sedan 90
+					- Växer och anställer för fullt
+					- Lund, Stockholm, Göteborg
+					- Produktföretag - Säljverktyg
+				</div>
+			</section> -->
+
+			<section>
+				<div data-markdown>
+					## Overview
+
+					1. Background
+					1. Current state of code
+					1. Future state of code
+					1. Plan
+					1. Execution
+					1. Risks
+					1. After base renovations
+					1. Chosen solutions
+				</div>
+			</section>
+
+			<section data-markdown>
+				## 1. Background
+
+				- Ongoing project for years
+				- Lots of features implemented
+				- Prio new features and bug fix
+				- Quite a bit of technical debt
+				- Wish to achieve a modern JS-kodbas
+				- Rewrite from scratch? Migrate?
+			</section>
+
+			<section data-markdown>
+				## 2. Current state of code
+
+				- Automated tests?
+				- What build system is used?
+				- Dependency management
+				- Modular code?
+				- Hand written solutions?
+			</section>
+
+			<section data-markdown>
+				## 3. Future state of code
+
+				- Mantra: simplify!
+				- Browser support nowadays?
+				- What can be removed?
+				- Simplest possible build system
+				- Standardized code formatting
+			</section>
+
+			<section data-markdown>
+				## 4. Plan
+
+				- Clear goals / milestones
+				- Separated iterations
+				- Where to begin
+				 - Lots of value for little effort
+			</section>
+
+			<section data-markdown>
+				## 5. Execution
+
+				- Begin with build system, easy to verify
+				- Modularise without reorganizing code
+				- Keep behaviors and names of build scripts
+				- Test constantly - both auto and manually
+				- Always do only one thing at a time!
+			</section>
+
+			<section data-markdown>
+				## 6. Risks
+
+				- Doing more than one thing at a time
+				 - Rollback needs to be trivial
+				- Replacing a complex thing with another complex thing
+				- Rewriting something "just because"
+			</section>
+
+			<section data-markdown>
+				## 7. Next steps?
+
+				- Modules and modern JS available
+				- AngularJS -> Angular (5)
+				- State management with Redux
+				- Web Components
+				- Componentized UI-components
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Chosen Solutions
+				</div>
+				<img src="../pics/limecrm.png" style="height: 25vh">
+			</section>
+
+			<section>
+					<div data-markdown>
+						## JavaScript-modules
+					</div>
+					<img src="../pics/esm.jpg" style="height: 25vh">
+					<div data-markdown>
+						- Newly standardized
+						 - Predecessors AMD, CommonJS
+						- Code navigation in editor
+						- Autocomplete, intellisense
+					</div>
+				</section>
+
+			<section>
+				<div data-markdown>
+					## Webpack
+				</div>
+				<img src="../pics/webpack.png" style="height: 25vh">
+				<div data-markdown>
+					- Automated bundling and building JS
+					 - Also CSS-moduler etc.
+					- Live reload
+					- Cache busting, minifying code
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Compile to JavaScript
+				</div>
+				<img src="../pics/ts.png" style="height: 25vh">
+
+				<div data-markdown>
+					- TypeScript: Superset of JavaScript
+					 - Transpiles modern JS to work in browsers
+					 - Refactoring no-brainer
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Data store
+				</div>
+				<img src="../pics/redux-white-bg.png" style="height: 25vh">
+				<div data-markdown>
+					- All data in one place
+					- Easy to organize and test
+					- Time traveling - "undo"
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Editor with code analysis
+				</div>
+				<img src="../pics/vsc.png" style="height: 25vh">
+				<div data-markdown>
+					- Visual Studio Code
+					- Atom
+					- VIM
+					- Sublime
+					- Autocompletion etc.
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Code formatting
+				</div>
+				<img src="../pics/prettierjs.png" style="height: 25vh">
+				<div data-markdown>
+					- Prettier.js
+					- Opinionated
+					- Can set a few options
+					- Automatic formatting
+					 - Scary until you've tried
+				</div>
+			</section>
+
+			<section>
+				<div data-markdown>
+					## Front End Framework
+				</div>
+				<img src="../pics/angular.svg" style="height: 25vh">
+				<div data-markdown>
+					- Complete FE Framework
+					- Components for UI element
+					- FormBuilder, Router, HTTP Client
+					- Observables, One way binding
+				</div>
+			</section>
+
+			<!-- <section>
+				<div data-markdown>
+					## Tack!
+					- Traineeprogram för nyutexaminerade
+					 - [lundalogik.se/trainee](http://www.lundalogik.se/trainee)
+					 - Sista ansökningsdag 28 februari
+					- Maila oss [info@lundalogik.se](mailto:info@lundalogik.se)
+					- [github.com/Lundalogik/next-gen-js-slides](http://www.github.com/Lundalogik/next-gen-js-slides)
+				</div>
+			</section> -->
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			// Display presentation control arrows
+			controls: true,
+
+			// Help the user learn the controls by providing hints, for example by
+			// bouncing the down arrow when they first encounter a vertical slide
+			controlsTutorial: true,
+
+			// Determines where controls appear, "edges" or "bottom-right"
+			controlsLayout: 'bottom-right',
+
+			// Visibility rule for backwards navigation arrows; "faded", "hidden"
+			// or "visible"
+			controlsBackArrows: 'faded',
+
+			// Display a presentation progress bar
+			progress: true,
+
+			// Set default timing of 2 minutes per slide
+			defaultTiming: 120,
+
+			// Display the page number of the current slide
+			slideNumber: false,
+
+			// Push each slide change to the browser history
+			history: false,
+
+			// Enable keyboard shortcuts for navigation
+			keyboard: true,
+
+			// Enable the slide overview mode
+			overview: true,
+
+			// Vertical centering of slides
+			center: true,
+
+			// Enables touch navigation on devices with touch input
+			touch: true,
+
+			// Loop the presentation
+			loop: false,
+
+			// Change the presentation direction to be RTL
+			rtl: false,
+
+			// Randomizes the order of slides each time the presentation loads
+			shuffle: false,
+
+			// Turns fragments on and off globally
+			fragments: true,
+
+			// Flags if the presentation is running in an embedded mode,
+			// i.e. contained within a limited portion of the screen
+			embedded: false,
+
+			// Flags if we should show a help overlay when the questionmark
+			// key is pressed
+			help: true,
+
+			// Flags if speaker notes should be visible to all viewers
+			showNotes: false,
+
+			// Global override for autoplaying embedded media (video/audio/iframe)
+			// - null: Media will only autoplay if data-autoplay is present
+			// - true: All media will autoplay, regardless of individual setting
+			// - false: No media will autoplay, regardless of individual setting
+			autoPlayMedia: null,
+
+			// Number of milliseconds between automatically proceeding to the
+			// next slide, disabled when set to 0, this value can be overwritten
+			// by using a data-autoslide attribute on your slides
+			autoSlide: 0,
+
+			// Stop auto-sliding after user input
+			autoSlideStoppable: true,
+
+			// Use this method for navigation when auto-sliding
+			autoSlideMethod: Reveal.navigateNext,
+
+			// Enable slide navigation via mouse wheel
+			mouseWheel: false,
+
+			// Hides the address bar on mobile devices
+			hideAddressBar: true,
+
+			// Opens links in an iframe preview overlay
+			previewLinks: false,
+
+			// Transition style
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+
+			// Transition speed
+			transitionSpeed: 'default', // default/fast/slow
+
+			// Transition style for full page slide backgrounds
+			backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+			// Number of slides away from the current that are visible
+			viewDistance: 3,
+
+			// Parallax background image
+			parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+			// Parallax background size
+			parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+			// Number of pixels to move the parallax background per slide
+			// - Calculated automatically unless specified
+			// - Set to 0 to disable movement along an axis
+			parallaxBackgroundHorizontal: null,
+			parallaxBackgroundVertical: null,
+
+			// The display mode that will be used to show slides
+			display: 'block',
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

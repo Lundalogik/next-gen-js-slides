@@ -11,4 +11,4 @@ node_modules/
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
-package-lock.json
+20180207-next-gen-js-slides/package-lock.json
